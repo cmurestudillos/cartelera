@@ -10,16 +10,7 @@ import { PipesModule } from '../pipes/pipes.module';
 import { RatingModule } from 'ng-starrating';
 
 @NgModule({
-  declarations: [
-    HomeComponent,
-    PeliculaComponent,
-    BuscarComponent
-  ],
-  imports: [
-    CommonModule,
-    ComponentsModule,
-    PipesModule,
-    RatingModule
-  ]
+  declarations: [HomeComponent, PeliculaComponent, BuscarComponent],
+  imports: [CommonModule, ComponentsModule, PipesModule, RatingModule],
 })
-export class PagesModule { }
+export class PagesModule {}

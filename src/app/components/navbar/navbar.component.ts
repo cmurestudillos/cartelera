@@ -6,26 +6,23 @@ import packageInfo from '../../../../package.json';
 @Component({
   selector: 'NavbarComponent',
   templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.css']
+  styleUrls: ['./navbar.component.css'],
 })
 export class NavbarComponent implements OnInit {
-
   // Version de la aplicacion
   public appVersion: string = packageInfo.version;
 
-  constructor( private router: Router ) { }
+  constructor(private router: Router) {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
   //-------------------------------------------------------------------------------------------------------//
   // buscarPelicula todas las peliculas relacionadas con el string introducido                             //
   //-------------------------------------------------------------------------------------------------------//
-  buscarPelicula( texto: string ) {
+  buscarPelicula(texto: string) {
     texto = texto.trim();
-    if ( texto.length === 0 ) {
+    if (texto.length === 0) {
       return;
     }
-    this.router.navigate(['/buscar', texto ]);
+    this.router.navigate(['/buscar', texto]);
   }
-
 }

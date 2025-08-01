@@ -10,25 +10,9 @@ import { SlideshowComponent } from './slideshow/slideshow.component';
 import { PeliculasPosterGridComponent } from './peliculas-poster-grid/peliculas-poster-grid.component';
 import { CastSlideshowComponent } from './cast-slideshow/cast-slideshow.component';
 
-
 @NgModule({
-  declarations: [
-    NavbarComponent,
-    SlideshowComponent,
-    PeliculasPosterGridComponent,
-    CastSlideshowComponent
-  ],
-  exports: [
-    NavbarComponent,
-    SlideshowComponent,
-    PeliculasPosterGridComponent,
-    CastSlideshowComponent
-  ],
-  imports: [
-    CommonModule,
-    RouterModule,
-    RatingModule,
-    PipesModule
-  ]
+  declarations: [NavbarComponent, SlideshowComponent, PeliculasPosterGridComponent, CastSlideshowComponent],
+  exports: [NavbarComponent, SlideshowComponent, PeliculasPosterGridComponent, CastSlideshowComponent],
+  imports: [CommonModule, RouterModule, RatingModule, PipesModule],
 })
-export class ComponentsModule { }
+export class ComponentsModule {}

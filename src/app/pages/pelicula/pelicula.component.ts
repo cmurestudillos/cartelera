@@ -13,30 +13,34 @@ import { combineLatest } from 'rxjs';
 @Component({
   selector: 'PeliculaComponent',
   templateUrl: './pelicula.component.html',
-  styleUrls: []
+  styleUrls: [],
 })
 export class PeliculaComponent implements OnInit {
-
   public pelicula: MovieResponse;
   public cast: Cast[] = [];
 
-  constructor( private activatedRoute: ActivatedRoute, private peliculasService: PeliculasService, private location: Location, private router: Router ) { }
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private peliculasService: PeliculasService,
+    private location: Location,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
-
     const { id } = this.activatedRoute.snapshot.params;
-    combineLatest([this.peliculasService.getPeliculaDetalle( id ), this.peliculasService.getCast( id )]).subscribe( ( [pelicula, cast] ) => {
-      if ( !pelicula ) {
-        this.router.navigateByUrl('/home');
-        return;
+    combineLatest([this.peliculasService.getPeliculaDetalle(id), this.peliculasService.getCast(id)]).subscribe(
+      ([pelicula, cast]) => {
+        if (!pelicula) {
+          this.router.navigateByUrl('/home');
+          return;
+        }
+        this.pelicula = pelicula;
+        this.cast = cast.filter(actor => actor.profile_path !== null);
       }
-      this.pelicula = pelicula;  
-      this.cast = cast.filter( actor => actor.profile_path !== null );
-    });
+    );
   }
 
   onRegresar() {
     this.location.back();
   }
-
 }
